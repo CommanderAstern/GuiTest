@@ -1,0 +1,25 @@
+{% extends "simpleApp/base.html" %}
+{% block content %}
+  <style>
+    .button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+  </style>
+  <div>
+    <form action="{% url 'index' %}" method="post">
+      {% csrf_token %}
+      <button class="button" type="submit">Click me!</button>
+    </form>
+    <p>You've clicked the button {{ counter }} times.</p>
+  </div>
+
+{% endblock %}

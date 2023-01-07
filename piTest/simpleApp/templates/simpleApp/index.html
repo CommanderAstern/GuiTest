@@ -1,25 +1,42 @@
 {% extends "simpleApp/base.html" %}
 {% block content %}
-  <style>
-    .button {
-      background-color: #4CAF50;
-      border: none;
-      color: white;
-      padding: 15px 32px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin: 4px 2px;
-      cursor: pointer;
-    }
-  </style>
-  <div>
-    <form action="{% url 'index' %}" method="post">
-      {% csrf_token %}
-      <button class="button" type="submit">Click me!</button>
-    </form>
-    <p>You've clicked the button {{ counter }} times.</p>
+{% load static %}
+
+<div
+class="relative w-full overflow-hidden flex flex-col h-screen box-border items-center justify-center text-center text-2xl text-white font-inter"
+>
+<div
+  class="relative font-extralight inline-block  shrink-0 text-[32px]"
+>
+  Welcome to
+</div>
+<div
+  class="flex flex-row items-center justify-center gap-[25px] text-left text-[96px] font-montserrat"
+>
+  <img
+    class="relative w-[114.14px] h-[179px] shrink-0"
+    alt=""
+    src="{% static 'images/icon.svg' %}"
+  />
+  <div
+    class="relative font-semibold inline-block w-[653px] h-[116px] shrink-0"
+  >
+    ChargeSwap
   </div>
+</div>
+<button
+  class="cursor-pointer [border:none] p-0 bg-[transparent] relative w-[460px] shrink-0"
+>
+  <div
+    class="flex-col absolute top-[0px] left-[0px] rounded-[26px] bg-gray-700 box-border w-[460px] h-[114px] border-[5px] border-solid border-teal"
+  >
+  <div
+    class="absolute top-[35px] left-[0px] text-[30px] font-extralight font-inter text-white text-center inline-block justify-center w-full h-full"
+  >
+    Get Started
+  </div>
+</div>
+</button>
+</div>
 
 {% endblock %}
