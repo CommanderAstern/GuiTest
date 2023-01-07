@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'simpleApp',
+    'tailwind',
+    'theme',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +53,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'piTest.urls'
+
+# SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
+TAILWIND_APP_NAME = 'theme'
 
 TEMPLATES = [
     {
@@ -121,3 +128,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+# NPM_BIN_PATH = "/usr/local/bin/npm"
