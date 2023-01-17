@@ -1,0 +1,30 @@
+{% extends "simpleApp/base.html" %} {% block content %} {% load static %}
+
+<div class="w-full">
+  <div class="w-full my-4 flex items-stretch justify-center">
+    <div class="flex">
+      <img
+        class="w-[30px] h-[30px]"
+        alt=""
+        src="{% static 'images/icon.svg' %}"
+      />
+    </div>
+    <div class="text-white font-semibold inline-block">ChargeSwap</div>
+  </div>
+
+  <div class="flex h-[382px] my-auto flex-col items-center justify-center">
+    <div class="flex items-center justify-around mx-40 mt-20">
+        <img src="{% static 'images/battery_3d.svg' %}" alt="" class="w-[150.0px]">
+    </div>
+
+    <p class="my-4 text-2xl font-semibold text-gradient font-poppins">Battery #123</p>
+    <div class="flex flex-col">
+        <p class="text-xl font-semibold text-gray-500 font-poppins">Battery used: <span class="text-white">50%</span></p>
+        <p class="text-xl font-semibold text-gray-500 font-poppins">Last changed at: <span class="text-white">Kormanagala Station</span></p>
+        <p class="text-xl font-semibold text-gray-500 font-poppins">Price to  pay: <span class="text-white">72$</span></p>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

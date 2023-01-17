@@ -1,0 +1,50 @@
+{% extends "simpleApp/base.html" %}
+{% block content %}
+{% load static %}
+<div class="w-full my-4 flex items-stretch justify-center">
+    <div class="flex">
+      <img
+        class="w-[30px] h-[30px]"
+        alt=""
+        src="{% static 'images/icon.svg' %}"
+      />
+    </div>
+    <div class="text-white font-semibold inline-block">ChargeSwap</div>
+</div>
+
+<div class="flex justify-around items-center">
+    <div class="grid gap-4 grid-cols-3 grid-rows-3">
+        <div class="flex flex-col justify-center items-center mx-8">
+            <img src="{% static 'images/battery_3d.svg' %}" alt="" class="w-[100px]">
+            <span class="text-gradient">65%</span>
+            <span class="text-sm font-semibold text-gray-500 font-poppins">Battery #1</span>
+        </div>
+        <div class="flex flex-col justify-center items-center mx-8">
+            <img src="{% static 'images/battery_3d.svg' %}" alt="" class="w-[100px]">
+            <span class="text-gradient">65%</span>
+            <span class="text-sm font-semibold text-gray-500 font-poppins">Battery #1</span>
+        </div>
+        <div class="flex flex-col justify-center items-center mx-8">
+            <img src="{% static 'images/battery_3d.svg' %}" alt="" class="w-[100px]">
+            <span class="text-gradient">65%</span>
+            <span class="text-sm font-semibold text-gray-500 font-poppins">Battery #1</span>
+        </div>
+        <div class="flex flex-col justify-center items-center mx-8">
+            <img src="{% static 'images/battery_3d.svg' %}" alt="" class="w-[100px]">
+            <span class="text-gradient">65%</span>
+            <span class="text-sm font-semibold text-gray-500 font-poppins">Battery #1</span>
+        </div>
+        <div class="flex flex-col justify-center items-center mx-8">
+            <img src="{% static 'images/battery_3d.svg' %}" alt="" class="w-[100px]">
+            <span class="text-gradient">65%</span>
+            <span class="text-sm font-semibold text-gray-500 font-poppins">Battery #1</span>
+        </div>
+        <div class="flex flex-col justify-center items-center mx-8">
+            <img src="{% static 'images/battery_3d.svg' %}" alt="" class="w-[100px]">
+            <span class="text-gradient">65%</span>
+            <span class="text-sm font-semibold text-gray-500 font-poppins">Battery #1</span>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

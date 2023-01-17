@@ -8,6 +8,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="initial-scale=1, width=device-width" />
   <link rel="stylesheet" href="./global.css" />
+  
 
   <link
     rel="stylesheet"
@@ -21,6 +22,44 @@
     rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
   />
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
+    .bg-blue-gradient {
+      background: linear-gradient(
+        157.81deg,
+        #def9fa -43.27%,
+        #bef3f5 -21.24%,
+        #9dedf0 12.19%,
+        #7de7eb 29.82%,
+        #5ce1e6 51.94%,
+        #33bbcf 90.29%
+      );
+    }
+
+    .text-gradient {
+      background: radial-gradient(
+        64.18% 64.18% at 71.16% 35.69%,
+        #def9fa 0.89%,
+        #bef3f5 17.23%,
+        #9dedf0 42.04%,
+        #7de7eb 55.12%,
+        #5ce1e6 71.54%,
+        #33bbcf 100%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+
+    h1,p{
+      font-family: 'Poppins', sans-serif;
+    }
+
+    
+  </style>
 </head>
 <body class="bg-gray-800 ">
   {% block content %}<!-- default content text (typically empty) -->{% endblock %}
