@@ -5,6 +5,7 @@
 
 <div class="w-full">
 
+  <a href="{% url 'index' %}">
     <div class="w-full my-4 flex items-stretch justify-center">
        <div class="flex"><img
         class="w-[30px] h-[30px]"
@@ -17,12 +18,16 @@
       ChargeSwap
     </div>
     </div>
-
+    </a>
     <div class="flex h-[382px] my-auto flex-col items-center justify-center">
         <p class="text-3xl font-semibold text-white">What do you want to do?</p>
         <div class="">
+          <a href="{% url 'scan' %}">
             <button type="button" class="mx-2 py-3 px-4 mt-4 bg-blue-gradient font-poppins font-medium text-lg text-gradient rounded-lg text-primary outline-none rounded">Scan the battery Card</button>
+          </a>
+          <a href="{% url 'batteries' %}">
             <button type="button" class="mx-2 py-3 px-4 mt-4 bg-blue-gradient font-poppins font-medium text-lg text-gradient rounded-lg text-primary outline-none rounded">View All batteries</button>    
+          </a>
         </div>
 
 

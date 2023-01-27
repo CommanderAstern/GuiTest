@@ -1,5 +1,29 @@
 {% extends "simpleApp/base.html" %} {% block content %} {% load static %}
 
+
+<style>
+
+
+
+  .text-gradient {
+    background: radial-gradient(
+      64.18% 64.18% at 71.16% 35.69%,
+      #def9fa 0.89%,
+      #bef3f5 17.23%,
+      #9dedf0 42.04%,
+      #7de7eb 55.12%,
+      #5ce1e6 71.54%, 
+      #33bbcf 100%
+    ); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+
+ 
+  
+</style>
 <div class="w-full">
   <div class="w-full my-4 flex items-stretch justify-center">
     <div class="flex">
@@ -13,16 +37,21 @@
   </div>
 
   <div class="flex h-[382px] my-auto flex-col items-center justify-center">
-    <div class="flex items-center justify-around mx-40 mt-20">
-        <img src="{% static 'images/battery_3d.svg' %}" alt="" class="w-[150.0px]">
-    </div>
+    <a href="{% url 'index' %}">
 
-    <p class="my-4 text-2xl font-semibold text-gradient font-poppins">Battery #123</p>
+      <div class="flex items-center justify-around mx-40 mt-20">
+          <img src="{% static 'images/battery_3d.svg' %}" alt="" class="w-[150.0px]">
+      </div>
+    </a> 
+    <p class="my-4 text-2xl font-semibold text-gradient font-poppins">Battery #{{id}}</p>
     <div class="flex flex-col">
-        <p class="text-xl font-semibold text-gray-500 font-poppins">Battery used: <span class="text-white">50%</span></p>
-        <p class="text-xl font-semibold text-gray-500 font-poppins">Last changed at: <span class="text-white">Kormanagala Station</span></p>
+        <p class="text-xl font-semibold text-gray-500 font-poppins">Battery Percentage: <span class="text-white">{{percentage}}%</span></p>
+        {% if inStation %}
+        <p class="text-xl font-semibold text-gray-500 font-poppins">User: <span class="text-white">{{user}}</span></p>
+        {% else %}
+        <p class="text-xl font-semibold text-gray-500 font-poppins">Station: <span class="text-white">{{station}}</span></p>
+        {% endif %}
         <p class="text-xl font-semibold text-gray-500 font-poppins">Price to  pay: <span class="text-white">72$</span></p>
-
     </div>
   </div>
 </div>

@@ -1,20 +1,66 @@
 {% extends "simpleApp/base.html" %}
 {% block content %}
 {% load static %}
-<div class="w-full my-4 flex items-stretch justify-center">
-    <div class="flex">
-      <img
-        class="w-[30px] h-[30px]"
-        alt=""
-        src="{% static 'images/icon.svg' %}"
-      />
+
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
+    .bg-blue-gradient {
+      background: linear-gradient(
+        157.81deg,
+        #def9fa -43.27%,
+        #bef3f5 -21.24%,
+        #9dedf0 12.19%,
+        #7de7eb 29.82%,
+        #5ce1e6 51.94%,
+        #33bbcf 90.29%
+      );
+    }
+
+    .text-gradient {
+      background: radial-gradient(
+        64.18% 64.18% at 71.16% 35.69%,
+        #def9fa 0.89%,
+        #bef3f5 17.23%,
+        #9dedf0 42.04%,
+        #7de7eb 55.12%,
+        #5ce1e6 71.54%,
+        #33bbcf 100%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+
+    h1,p{
+      font-family: 'Poppins', sans-serif;
+    }
+
+    
+  </style>
+<a href="{% url 'index' %}">
+    <div class="w-full my-4 flex items-stretch justify-center">
+      <div class="flex">
+        <img
+          class="w-[30px] h-[30px]"
+          alt=""
+          src="{% static 'images/icon.svg' %}"
+        />
+      </div>
+      <div class="text-white font-semibold inline-block">ChargeSwap</div>
     </div>
-    <div class="text-white font-semibold inline-block">ChargeSwap</div>
-</div>
+</a>  
 
 <div class="flex justify-around items-center">
     <div class="grid gap-4 grid-cols-3 grid-rows-3">
+        {% for battery in batteries %}
         <div class="flex flex-col justify-center items-center mx-8">
+            <img src="{% static 'images/battery_3d.svg' %}" alt="" class="w-[100px]">
+            <span class="text-gradient">100%</span>
+            <span class="text-sm font-semibold text-gray-500 font-poppins">Battery #{{battery}}</span>
+        </div>
+        <!-- <div class="flex flex-col justify-center items-center mx-8">
             <img src="{% static 'images/battery_3d.svg' %}" alt="" class="w-[100px]">
             <span class="text-gradient">65%</span>
             <span class="text-sm font-semibold text-gray-500 font-poppins">Battery #1</span>
@@ -38,12 +84,8 @@
             <img src="{% static 'images/battery_3d.svg' %}" alt="" class="w-[100px]">
             <span class="text-gradient">65%</span>
             <span class="text-sm font-semibold text-gray-500 font-poppins">Battery #1</span>
-        </div>
-        <div class="flex flex-col justify-center items-center mx-8">
-            <img src="{% static 'images/battery_3d.svg' %}" alt="" class="w-[100px]">
-            <span class="text-gradient">65%</span>
-            <span class="text-sm font-semibold text-gray-500 font-poppins">Battery #1</span>
-        </div>
+        </div> -->
+        {% endfor %}
     </div>
 </div>
 
