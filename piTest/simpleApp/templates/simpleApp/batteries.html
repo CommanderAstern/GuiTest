@@ -39,6 +39,94 @@
 
     
   </style>
+
+<!-- add internal css -->
+<style>
+  .box {
+    width: 40%;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 35px;
+    border: 2px solid #fff;
+    border-radius: 20px/50px;
+    background-clip: padding-box;
+    text-align: center;
+  }
+
+  .button {
+    /* font-size: 1em; */
+    /* padding: 10px; */
+    /* color: #fff; */
+    /* border: 2px solid #06d85f; */
+    border-radius: 20px/50px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+  }
+  .button:hover {
+    /* background: #06d85f; */
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .overlay:target {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    transition: all 5s ease-in-out;
+  }
+
+  .popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+  }
+  .popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+  .popup .close:hover {
+    color: #06d85f;
+  }
+  .popup .content {
+    max-height: 30%;
+    overflow: auto;
+  }
+
+  @media screen and (max-width: 700px) {
+    .box {
+      width: 70%;
+    }
+    .popup {
+      width: 70%;
+    }
+  }
+</style>
+
+
 <a href="{% url 'index' %}">
     <div class="w-full my-4 flex items-stretch justify-center">
       <div class="flex">
@@ -58,7 +146,25 @@
         <div class="flex flex-col justify-center items-center mx-8">
             <img src="{% static 'images/battery_3d.svg' %}" alt="" class="w-[100px]">
             <span class="text-gradient">100%</span>
-            <span class="text-sm font-semibold text-gray-500 font-poppins">Battery #{{battery}}</span>
+            <div >
+              <a class="py-3 px-4 mt-2 bg-blue-gradient shadow-lg shadow-teal-500/50 font-poppins font-medium text-lg text-gradient rounded-lg text-primary outline-none rounded" href="#popup1">Battery #{{battery}}</a>
+              <!-- <span class="text-sm font-semibold text-gray-500 font-poppins">Battery #{{battery}}</span> -->
+            </div>
+            
+            <div id="popup1" class="overlay">
+              <div class="popup">
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                  <div class="flex flex-col">
+                      <p class="text-xl font-semibold text-gray-500 font-poppins">Battery Name: <span class="text-black">battery-0</span></p>
+                      <p class="text-xl font-semibold text-gray-500 font-poppins">Capacity: <span class="text-black">12KMAh</span></p>
+                      <p class="text-xl font-semibold text-gray-500 font-poppins">Voltage: <span class="text-black">330V</span></p>
+                      <p class="text-xl font-semibold text-gray-500 font-poppins">Company: <span class="text-black">ChargeSwap Inc.</span></p>
+                      <p class="text-xl font-semibold text-gray-500 font-poppins">DOM: <span class="text-black">12/02/2022</span></p>
+                    </div>
+                </div>
+              </div>
+            </div>
         </div>
         <!-- <div class="flex flex-col justify-center items-center mx-8">
             <img src="{% static 'images/battery_3d.svg' %}" alt="" class="w-[100px]">
