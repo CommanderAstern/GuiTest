@@ -142,12 +142,12 @@
 
 <div class="flex justify-around items-center">
     <div class="grid gap-4 grid-cols-3 grid-rows-3">
-        {% for battery in batteries %}
+        {% for battery in batteriesInfo %}
         <div class="flex flex-col justify-center items-center mx-8">
             <img src="{% static 'images/battery_3d.svg' %}" alt="" class="w-[100px]">
             <span class="text-gradient">100%</span>
             <div >
-              <a class="py-3 px-4 mt-2 bg-blue-gradient shadow-lg shadow-teal-500/50 font-poppins font-medium text-lg text-gradient rounded-lg text-primary outline-none rounded" href="#popup1">Battery #{{battery}}</a>
+              <a class="py-3 px-4 mt-2 bg-blue-gradient shadow-lg shadow-teal-500/50 font-poppins font-medium text-lg text-gradient rounded-lg text-primary outline-none rounded" href="#popup1">Battery #{{battery.id}}</a>
               <!-- <span class="text-sm font-semibold text-gray-500 font-poppins">Battery #{{battery}}</span> -->
             </div>
             
@@ -156,11 +156,11 @@
                 <a class="close" href="#">&times;</a>
                 <div class="content">
                   <div class="flex flex-col">
-                      <p class="text-xl font-semibold text-gray-500 font-poppins">Battery Name: <span class="text-black">battery-0</span></p>
-                      <p class="text-xl font-semibold text-gray-500 font-poppins">Capacity: <span class="text-black">12KMAh</span></p>
-                      <p class="text-xl font-semibold text-gray-500 font-poppins">Voltage: <span class="text-black">330V</span></p>
-                      <p class="text-xl font-semibold text-gray-500 font-poppins">Company: <span class="text-black">ChargeSwap Inc.</span></p>
-                      <p class="text-xl font-semibold text-gray-500 font-poppins">DOM: <span class="text-black">12/02/2022</span></p>
+                      <p class="text-xl font-semibold text-gray-500 font-poppins">Battery Name: <span class="text-black">{{ battery.name }}</span></p>
+                      <p class="text-xl font-semibold text-gray-500 font-poppins">Capacity: <span class="text-black">{{ battery.capacity }} KMAh</span></p>
+                      <p class="text-xl font-semibold text-gray-500 font-poppins">Voltage: <span class="text-black">{{ battery.voltage }}V</span></p>
+                      <p class="text-xl font-semibold text-gray-500 font-poppins">Company: <span class="text-black">{{ battery.company }}</span></p>
+                      <p class="text-xl font-semibold text-gray-500 font-poppins">DOM: <span class="text-black">{{ battery.dateOfManufacture }}</span></p>
                     </div>
                 </div>
               </div>

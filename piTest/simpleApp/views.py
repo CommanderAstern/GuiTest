@@ -6,6 +6,7 @@ import os
 import json
 from web3 import Web3, EthereumTesterProvider
 from web3.middleware import geth_poa_middleware
+from urllib.request import urlopen
 
 addressContract = "0xF21a8dfb7F01792802d4a0d0C9905e01fc5A9672"
 
@@ -31,10 +32,35 @@ def getBatteriesByStation(station_id):
 
     abi = json.load(open('../abi.json'))
     contract_instance = w3.eth.contract(address=addressContract, abi=abi)
-
+ 
     res = contract_instance.functions.getBatteriesByStation(station_id).call()
-    return res
+    batteriesInfo = []
+    for i in res:
+        temp = {}
+        batteryVal = contract_instance.functions.batteries(i).call()
 
+        temp['id'] = batteryVal[0]
+        temp['batteryPercentage'] = batteryVal[1]
+        temp['lastBlocktime'] = batteryVal[2]
+        temp['status'] = batteryVal[3]
+        temp['currentStation'] = batteryVal[4]
+        temp['currentUser'] = batteryVal[5]
+        temp['metaABI'] = batteryVal[6]
+        url = "https://gateway.ipfscdn.io/ipfs/"+temp['metaABI']
+
+        response = urlopen(url)
+        data_json = json.loads(response.read())
+
+        temp['name'] = data_json['battery']['name']
+        temp['capacity'] =  data_json['battery']['capacity']
+        temp['current'] =  data_json['battery']['current']
+        temp['voltage'] =  data_json['battery']['voltage']
+        temp['maxTemperature'] =  data_json['battery']['maxTemperature']
+        temp['company'] =  data_json['battery']['company']
+        temp['dateOfManufacture'] =  data_json['battery']['dateOfManufacture']
+        batteriesInfo.append(temp)
+    # print(batteriesInfo)
+    return res, batteriesInfo
 
 def index(request):
     return render(request, 'simpleApp/index.html', {'counter': request.session['counter']})
@@ -78,5 +104,5 @@ def battery(request):
     return render(request, 'simpleApp/battery.html')
 
 def batteries(request):
-    batteries = getBatteriesByStation(1)
-    return render(request, 'simpleApp/batteries.html', {'batteries':batteries})
+    batteries, batteriesInfo = getBatteriesByStation(1)
+    return render(request, 'simpleApp/batteries.html', {'batteries':batteries, 'batteriesInfo':batteriesInfo})
